@@ -1,15 +1,8 @@
 {
-  "name": "education-bot",
+  "name": "whatsapp-bot",
   "version": "1.0.0",
-  "main": "bot.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node bot.js"
-  },
-  "dependencies": {
-    "@whiskeysockets/baileys": "^6.7.5",
-    "pino": "^8.17.2"
-  },
-  "engines": {
-    "node": "18.x"
+    "start": "node index.js"
   }
 }
