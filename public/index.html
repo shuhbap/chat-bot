@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Bot</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #020617;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: block;
+            width: 220px;
+            margin: 10px auto;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .qr {
+            background: #3b82f6;
+            color: #fff;
+        }
+
+        .pair {
+            background: #22c55e;
+            color: #000;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>WhatsApp Bot Connect</h1>
+
+    <a href="/qr" class="btn qr">Scan QR Code</a>
+    <a href="/pair" class="btn pair">Pair with Number</a>
+</div>
+
+</body>
+</html>
