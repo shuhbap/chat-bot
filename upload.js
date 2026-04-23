@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const axios = require('axios');
 require('dotenv').config();
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "ghp_DuFCEcEVm3";
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "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";
 async function upload(FILE_NAME,FILE_PATH) {
   try {
     const content = await fs.readFile(FILE_PATH, 'utf8');
