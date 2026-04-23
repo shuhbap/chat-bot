@@ -1,1 +1,25 @@
-
+{
+    "description": "qr",
+    "main": "./index.js",
+    "scripts": {
+    "start": "node index.js"
+  },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sssd.git"
+    },
+  "dependencies": {
+     "@whiskeysockets/baileys": "npm:@innovatorssoft/baileys@7.4.3",  
+    "qrcode": "^1.5.3",
+    "dotenv": "^16.0.3",
+      "axios": "^1.6.2",
+    "jimp": "^0.22.12",
+    "awesome-phonenumber": "^2.64.0",
+    "pino": "^8.1.0",
+    "phone" : "3.1.30",
+    "lodash": "^4.17.21",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.1",
+    "path": "^0.12.7"
+   }
+}
