@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pair Device</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #020617;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: #0f172a;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background: #22c55e;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Pair Device</h2>
+
+    <input type="text" id="number" placeholder="Enter number (with country code)">
+    <button onclick="pair()">Get Code</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    async function pair() {
+        const number = document.getElementById('number').value;
+        const resultBox = document.getElementById('result');
+
+        if (!number) {
+            resultBox.innerText = "Enter a valid number";
+            return;
+        }
+
+        resultBox.innerText = "Generating code...";
+
+        try {
+            const res = await fetch('/code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ number })
+            });
+
+            const data = await res.json();
+
+            if (data.code) {
+                resultBox.innerText = "Your Pair Code: " + data.code;
+            } else if (data.error) {
+                resultBox.innerText = data.error;
+            } else {
+                resultBox.innerText = "Something went wrong";
+            }
+
+        } catch (err) {
+            resultBox.innerText = "Server error";
+        }
+    }
+</script>
+
+</body>
+</html>
