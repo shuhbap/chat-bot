@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f172a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #qr {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        img {
+            width: 250px;
+            height: 250px;
+        }
+
+        .status {
+            margin-top: 15px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Scan QR Code</h1>
+
+    <div id="qr">
+        <img id="qrImage" src="" alt="QR Code">
+    </div>
+
+    <div class="status">Waiting for QR...</div>
+</div>
+
+<script>
+    async function loadQR() {
+        try {
+            const res = await fetch('/qr-code');
+            const data = await res.json();
+
+            if (data.qr) {
+                document.getElementById('qrImage').src = data.qr;
+                document.querySelector('.status').innerText = "Scan this QR";
+            } else {
+                document.querySelector('.status').innerText = "Generating QR...";
+            }
+        } catch (err) {
+            document.querySelector('.status').innerText = "Error loading QR";
+        }
+    }
+
+    // refresh every 3 sec
+    setInterval(loadQR, 3000);
+    loadQR();
+</script>
+
+</body>
+</html>
