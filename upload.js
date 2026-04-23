@@ -31,4 +31,3 @@ async function upload(FILE_NAME,FILE_PATH) {
 
 module.exports = { upload };
 
-Ith enth code aan Entha file create akkumbo name kodukka
